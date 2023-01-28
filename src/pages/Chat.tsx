@@ -2,7 +2,8 @@ import React from 'react'
 import { useMemo, useState, useRef, useEffect  } from 'react'
 import { useParams } from 'react-router-dom'
 import io from 'socket.io-client'
-import Massage from '../massage/Massage'
+import BackButton from '../components/backButton'
+import Message from '../massage/Message'
 import { IData } from './interfaces'
 
 
@@ -17,15 +18,15 @@ const Chat = () => {
     })
   
     useMemo(()=>{
-      socket.on('massage',(massage:IData)=>{
-        setMassages(prev=>[...prev,massage])
-        console.log(massage)
+      socket.on('message',(message:IData)=>{
+        setMessages(prev=>[...prev,message])
+        console.log(message)
       })}
     ,[])
   
     const [msg,setMsg]=useState('')
   
-    const [massages,setMassages] = useState<IData[]>([])
+    const [messages,setMessages] = useState<IData[]>([])
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.code === "Enter") {
@@ -34,44 +35,47 @@ const Chat = () => {
     };
 
     useEffect(()=>{
-      console.log(massages);
+      console.log(messages);
       
-    },[massages])
+    },[messages])
   
     return (
-      <div className='absolute top-0 left-0 right-0 bottom-0  flex items-center justify-center bg-hMint'>
-        <div className='h-2/3 w-1/2  rounded-3xl relative bg-hWhite'>
-            <div className='m-2 p-5 absolute left-0 right-0 bottom-14 top-0 overflow-auto  '>
-            {massages &&
-              massages.map((e,i)=>{ return(
-                <Massage 
+      <div className='absolute top-0 left-0 right-0 bottom-0  flex items-center justify-center bg-gradient-to-r from-hDarkBlue to-hBlue'>
+        <div className='h-2/3 w-1/2 relative bg-hDarkBlue'>
+            <BackButton/>
+            <div className='absolute bottom-14 top-14 left-0 right-0 scrollbar-thin overflow-scroll scrollbar-track-hBlue scrollbar-thumb-hLight'>
+            {messages &&
+              messages.map((e,i)=>{ return(
+                <Message 
                   key={i}
-                  name={e.name==massages[i-1]?.name ? '' : e.name}
+                  name={e.name==messages[i-1]?.name ? '' : e.name}
                   msg={e.msg}
                   date={e.date}
                   foreign={chatName==e.name?true:false}
-                ></Massage>
+                ></Message>
                 )
               })
             }
             </div>
-            <div className='flex flex-row justify-between  absolute bottom-0 right-0  h-14 left-0 rounded-3xl'>
+            <div className='flex flex-row justify-between absolute bottom-0 right-0 h-14 left-0 rounded-3xl'>
               <input 
                 autoFocus
                 onKeyDown={keyDownHandler}
                 type='text' 
-                className='w-full m-2 px-2 bg-transparent shadow-md placeholder:text-hDarkGreen focus:border-hDarkGreen border rounded-full focus:outline-none h-10'
-                placeholder='Введите сообщение...'
+                className='w-full m-2 px-2 h-10 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
+                placeholder='Write message...'
                 onChange={(e)=>{setMsg(e.target.value)}}
                 value={msg}
               ></input>
               <button 
                 ref = {buttonRef}
-                className='m-2 px-10 border rounded-full bg-hGreen text-hMint active:bg-hWhite hover:border-hDarkGreen' 
+                className='m-2 px-10 border border-hLight text-hLight hover:text-hDarkBlue hover:bg-hLight active:text-hLight active:bg-transparent' 
                 onClick={()=>{
-                  socket.emit('massage',{name:chatName,msg:msg,date:Date.now()})
-                  setMassages(prev=>[...prev,{name:chatName,msg:msg,date:Date.now()}])
-                  setMsg('')
+                  if(msg!=''){
+                    socket.emit('message',{name:chatName,msg:msg,date:Date.now()})
+                    setMessages(prev=>[...prev,{name:chatName,msg:msg,date:Date.now()}])
+                    setMsg('')
+                  }
                 }}
               >Send</button>
             </div>

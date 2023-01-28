@@ -3,17 +3,22 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend:{
       colors : {
-        'hMint':'#00e5b3',
-        'hGreen':'#1f8368',
-        'hDarkGreen':'#172c35',
-        'hWhite':'#eef0e1'
+        'hDarkBlue':'#012e3b',
+        'hBlue':'#03475A',
+        'hLight':'#c9c5c6'
       },
+      fontFamily:{
+        dune:['Dune'],
+        reospec:['Reospec'],
+        rubic:['Rubic']
+      }, 
     }
   },
   plugins: [
-    
+    require('tailwind-scrollbar'),
   ],
 }

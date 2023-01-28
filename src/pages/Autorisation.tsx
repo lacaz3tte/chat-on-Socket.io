@@ -35,29 +35,33 @@ const Autorisation = () => {
     
 
   return (
-    <div className='absolute top-0 left-0 right-0 bottom-0  flex items-center justify-center bg-hMint'>
-        <div className='h-2/3 w-1/2  rounded-3xl flex justify-center items-center flex-col bg-hWhite shadow-2xl'>
-                <p className='font-medium text-lg m-5 text-hDarkGreen'>{header}</p>
+    <div className='absolute top-0 left-0 right-0 bottom-0  flex items-center justify-center bg-gradient-to-r from-hDarkBlue to-hBlue'>
+        <div className='h-2/3 w-1/2 flex justify-center items-center flex-col bg-hDarkBlue '>
+                <p className='text-3xl  m-10 text-hLight'>{header}</p>
                 <input 
                     autoFocus
                     onKeyDown={keyDownHandler}
                     type='text' 
-                    className=' m-2 px-5 bg-transparent placeholder:text-hDarkGreen border rounded-full focus:outline-none focus:border-hDarkGreen h-10 block w-1/2 shadow-md'
+                    className='h-10 block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
                     placeholder='Login...'
                     value={name}
                     onChange={(e)=>{setName(e.target.value)}}
                 ></input>
                 <input 
                     onKeyDown={keyDownHandler}
-                    type='text' 
-                    className=' m-2 px-5 bg-transparent placeholder:text-hDarkGreen focus:border-hDarkGreen border rounded-full focus:outline-none h-10 block w-1/2 shadow-md'
+                    type='password' 
+                    className='h-10 block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
                     placeholder='Password...'
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}
                 ></input>
                 <button 
+                    className='text-hLight p-3 underline'
+                    onClick={()=>navigate('/create')}
+                >Or create an account</button>
+                <button 
                     ref={buttonRef}
-                    className='m-5 px-10 border bg-hGreen text-hMint rounded-full p-2 active:bg-hWhite hover:border-hDarkGreen shadow-md'
+                    className='m-5 px-10 p-2 border border-hLight text-hLight hover:text-hDarkBlue hover:bg-hLight active:text-hLight active:bg-transparent'
                     onClick={()=>clickHandle()}
                 >Enter
                 </button>
