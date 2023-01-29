@@ -36,13 +36,13 @@ const Autorisation = () => {
 
   return (
     <div className='absolute top-0 left-0 right-0 bottom-0  flex items-center justify-center bg-gradient-to-r from-hDarkBlue to-hBlue'>
-        <div className='h-2/3 w-1/2 flex justify-center items-center flex-col bg-hDarkBlue '>
-                <p className='text-3xl  m-10 text-hLight'>{header}</p>
+        <div className='h-2/3 w-1/2 min-h-[400px] min-w-[325px] flex justify-center items-center flex-col bg-hDarkBlue '>
+                <p className='text-3xl m-10 text-hLight'>{header}</p>
                 <input 
                     autoFocus
                     onKeyDown={keyDownHandler}
                     type='text' 
-                    className='h-10 block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
+                    className='h-10 min-h-[40px] block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
                     placeholder='Login...'
                     value={name}
                     onChange={(e)=>{setName(e.target.value)}}
@@ -50,7 +50,7 @@ const Autorisation = () => {
                 <input 
                     onKeyDown={keyDownHandler}
                     type='password' 
-                    className='h-10 block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
+                    className='h-10 min-h-[40px] block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
                     placeholder='Password...'
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}

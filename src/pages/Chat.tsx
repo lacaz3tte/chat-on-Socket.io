@@ -20,7 +20,6 @@ const Chat = () => {
     useMemo(()=>{
       socket.on('message',(message:IData)=>{
         setMessages(prev=>[...prev,message])
-        console.log(message)
       })}
     ,[])
   
@@ -35,13 +34,19 @@ const Chat = () => {
     };
 
     useEffect(()=>{
-      console.log(messages);
-      
-    },[messages])
+      fetch('http://localhost:3001/mess',{
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+      }).
+      then(res=>res.json()).
+      then(res=>setMessages(res))
+    },[]) 
   
     return (
       <div className='absolute top-0 left-0 right-0 bottom-0  flex items-center justify-center bg-gradient-to-r from-hDarkBlue to-hBlue'>
-        <div className='h-2/3 w-1/2 relative bg-hDarkBlue'>
+        <div className='h-2/3 w-1/2 min-h-[400px] min-w-[325px] relative bg-hDarkBlue'>
             <BackButton/>
             <div className='absolute bottom-14 top-14 left-0 right-0 scrollbar-thin overflow-scroll scrollbar-track-hBlue scrollbar-thumb-hLight'>
             {messages &&
@@ -69,7 +74,7 @@ const Chat = () => {
               ></input>
               <button 
                 ref = {buttonRef}
-                className='m-2 px-10 border border-hLight text-hLight hover:text-hDarkBlue hover:bg-hLight active:text-hLight active:bg-transparent' 
+                className='m-2 lg:px-10 px-2 border border-hLight text-hLight hover:text-hDarkBlue hover:bg-hLight active:text-hLight active:bg-transparent' 
                 onClick={()=>{
                   if(msg!=''){
                     socket.emit('message',{name:chatName,msg:msg,date:Date.now()})
@@ -79,9 +84,7 @@ const Chat = () => {
                 }}
               >Send</button>
             </div>
-          
         </div>
-      
       </div>
     )}
 

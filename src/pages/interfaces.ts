@@ -1,5 +1,5 @@
 export interface IData{
-    name:string|undefined
+    name:string|undefined,
     msg:string,
     date:number
 }
