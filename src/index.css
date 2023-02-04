@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: "Dune";
-        font-weight: 400;
-        src: url("../public/Dune_Rise.ttf");
-    }
-    @font-face {
-        font-family: "Reospec";
-        font-weight: 400;
-        src: url("../public/Reospec.otf");
-    }
-    @font-face {
-        font-family: "Rubic";
-        font-weight: 400;
-        src: url("../public/Rubik.ttf");
-    }
+  @font-face {
+    font-family: "Dune";
+    font-weight: 400;
+    src: url("../public/Dune_Rise.ttf");
   }
+  @font-face {
+    font-family: "Reospec";
+    font-weight: 400;
+    src: url("../public/Reospec.otf");
+  }
+  @font-face {
+    font-family: "Rubic";
+    font-weight: 400;
+    src: url("../public/Rubik.ttf");
+  }
+}
