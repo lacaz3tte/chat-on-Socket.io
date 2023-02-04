@@ -1,4 +1,3 @@
-const API_URL = "http://localhost:3001/api/auth/";
 import { IUser } from "./../interfaces";
 
 class AuthService {
