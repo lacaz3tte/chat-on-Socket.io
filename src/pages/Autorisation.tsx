@@ -1,13 +1,16 @@
 import React, {useState, useRef} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import AuthService from '../services/Auth.service'
+import { IUser } from './../interfaces';
 
 const Autorisation = () => {
 
     const navigate = useNavigate()
 
-    const [name,setName] = useState('')
+    const [login,setLogin] = useState('')
     const [password,setPassword] = useState('')
     const [header,setHeader] = useState('Enter your name and password')
+    
     const buttonRef = useRef<HTMLButtonElement>(null)
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -17,19 +20,13 @@ const Autorisation = () => {
     }; 
 
     const clickHandle = async()=>{
-        await fetch('http://localhost:3001/auth',{
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: name, pass: password})
-        }).
-        then(res=>res.json()).
-        then(res=>{
-            if(res.username==null){
+        AuthService.login({login,password})
+        .then(res=>{
+            if(res.login==null){
                 setHeader('Invalid name or password')
             } else {
-                navigate("chat/"+res.username)
+                localStorage.setItem('user',res.login)
+                navigate("chat/"+res.login)
             }
         })}
     
@@ -44,8 +41,8 @@ const Autorisation = () => {
                     type='text' 
                     className='h-10 min-h-[40px] block w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
                     placeholder='Login...'
-                    value={name}
-                    onChange={(e)=>{setName(e.target.value)}}
+                    value={login}
+                    onChange={(e)=>{setLogin(e.target.value)}}
                 ></input>
                 <input 
                     onKeyDown={keyDownHandler}

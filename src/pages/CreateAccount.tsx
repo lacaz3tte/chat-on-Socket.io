@@ -2,10 +2,11 @@ import React, {useState, useRef} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import BackButton from '../components/backButton'
 import DarkModeButton from '../components/darkModeButton'
+import AuthService from '../services/Auth.service'
 
 const CreateAccount = () => {
 
-    const [name,setName] = useState('')
+    const [login,setLogin] = useState('')
     const [password,setPassword] = useState('')
     const [header,setHeader] = useState('Create account')
     const buttonRef = useRef<HTMLButtonElement>(null)
@@ -17,20 +18,14 @@ const CreateAccount = () => {
     }; 
 
     const clickHandle = async()=>{
-        if(name==''||password==''){
+        if(login==''||password==''){
             setHeader('Login or password is empty')
         } else {
-            await fetch('http://localhost:3001/create',{
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({name: name, pass: password})
-            }).then(res=>res.json()).then(res=>{
+            AuthService.register({login,password}).then(res=>{
                 if(res===false){
                     setHeader('There is already an account with this name')
                 } else {
-                    setName('')
+                    setLogin('')
                     setPassword('')
                     setHeader('Account created')
                 }
@@ -50,8 +45,8 @@ const CreateAccount = () => {
                         type='text' 
                         className='h-10 block min-h-[40px] w-1/2 m-2 px-5 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none'
                         placeholder='Login...'
-                        value={name}
-                        onChange={(e)=>{setName(e.target.value)}}
+                        value={login}
+                        onChange={(e)=>{setLogin(e.target.value)}}
                     ></input>
                     <input 
                         onKeyDown={keyDownHandler}
