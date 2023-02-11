@@ -21,7 +21,7 @@ const CreateAccount = () => {
       setHeader("Login or password is empty");
     } else {
       AuthService.register({ login, password }).then((res) => {
-        if (res === false) {
+        if (res.data === false) {
           setHeader("There is already an account with this name");
         } else {
           setLogin("");

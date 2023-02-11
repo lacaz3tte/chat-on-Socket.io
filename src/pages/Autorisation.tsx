@@ -20,11 +20,11 @@ const Autorisation = () => {
 
   const clickHandle = async () => {
     AuthService.login({ login, password }).then((res) => {
-      if (res.login == null) {
+      if (res.data.login == null) {
         setHeader("Invalid name or password");
       } else {
-        localStorage.setItem("user", res.login);
-        navigate("chat/" + res.login);
+        localStorage.setItem("user", res.data.login);
+        navigate("chat/" + res.data.login);
       }
     });
   };
