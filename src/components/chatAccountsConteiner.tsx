@@ -8,7 +8,7 @@ interface IDataTransfer {
     _id:string
 }
 
-const ChatConteiner = () => {
+const ChatAccountsConteiner = () => {
 
     const [chats,setChats] = useState<IDataTransfer[]>([])
 
@@ -37,4 +37,4 @@ const ChatConteiner = () => {
     )
 }
 
-export default ChatConteiner
+export default ChatAccountsConteiner

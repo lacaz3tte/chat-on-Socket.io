@@ -4,7 +4,7 @@ import { getTime } from "./getTime";
 
 const Message = ({ name, msg, date, foreign }: IMassage) => {
   return (
-    <div className={"flex" + (foreign ? " justify-end" : "")}>
+    <div className={"flex" + (foreign ? "" : " justify-end ")}>
       <div
         className={
           "p-3 m-2 max-w-[60%] overflow-auto  text-hLight border border-hLight"

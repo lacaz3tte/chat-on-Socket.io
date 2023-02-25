@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../components/backButton";
-import DarkModeButton from "../components/darkModeButton";
 import AuthService from "../services/Auth.service";
 
 const CreateAccount = () => {

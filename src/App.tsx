@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
-import Chat from "./pages/Chat";
 import Autorisation from "./pages/Autorisation";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateAccount from "./pages/CreateAccount";
+import Chat from "./pages/Chat";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,7 +11,7 @@ function App() {
     },
     {
       path: "chat/:chatName",
-      element: <Chat />,
+      element: <Chat />
     },
     {
       path: "/create",
@@ -20,7 +19,9 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider router={router} />
+  );
 }
 
 export default App;
