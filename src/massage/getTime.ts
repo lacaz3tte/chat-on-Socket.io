@@ -1,9 +1,19 @@
 export const getTime = (date: number) => {
-  const additionalZero = new Date(date).getMinutes() > 10 ? "" : "0";
+
+  const additionalZero = (num:number) => {
+    if(num > 9){
+      return num.toString()
+    }
+    return "0" + num
+  }
+  
   return (
-    new Date(date).getHours() +
+    additionalZero(new Date(date).getDate())  +
+    "." +
+    additionalZero(new Date(date).getMonth() + 1) +
+    " " +
+    additionalZero(new Date(date).getHours()) +
     ":" +
-    additionalZero +
-    new Date(date).getMinutes()
+    additionalZero(new Date(date).getMinutes())
   );
 };

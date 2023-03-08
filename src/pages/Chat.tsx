@@ -1,7 +1,8 @@
 import BackButton from "../components/backButton";
-import ChatAccountsConteiner from '../components/chatAccountsConteiner';
+import ChatAccountsConteiner from '../components/chats/chatAccountsConteiner';
 import { ChatProvider } from "../components/chatContext";
 import MessagesConteiner from '../components/messagesConteiner';
+
 
 const Chat = () => {
 
