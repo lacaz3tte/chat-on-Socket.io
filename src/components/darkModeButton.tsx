@@ -15,16 +15,16 @@ const DarkModeButton = () => {
 
   return (
     <button
-      className="border m-2 hover:text-hDarkBlue hover:bg-hLight active:bg-transparent"
+      className="m-2 hover:bg-h4 dark:hover:bg-hd4 active:bg-transparent dark:active:bg-transparent rounded-full p-2 transition-all text-h2 dark:text-hd2 hover:text-h1 dark:hover:text-hd1 active:text-h2 dark:active:text-hd2"
       onClick={() => themeHandle()}
     >
-      {theme ? (
+      {!theme ? (
         <svg
-          className="h-10 w-10 text-hLight"
+          className="h-8 w-8"
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          strokeWidth="2"
+          strokeWidth="1"
           stroke="currentColor"
           fill="none"
           strokeLinecap="round"
@@ -36,11 +36,11 @@ const DarkModeButton = () => {
         </svg>
       ) : (
         <svg
-          className="h-10 w-10 text-hLight"
+          className="h-8 w-8"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeLinecap="round"
           stroke-linejoin="round"
         >

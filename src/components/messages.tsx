@@ -44,7 +44,7 @@ const Messages = () => {
   return (
     <div>
       <div
-        className="absolute bottom-14 top-14 left-0 right-0 scrollbar-thin overflow-scroll scrollbar-track-hBlue scrollbar-thumb-hLight "
+        className="absolute bottom-14 top-16 left-0 right-0 scrollbar-thin overflow-scroll scrollbar-track-h1 scrollbar-thumb-h4 dark:scrollbar-track-hd1 dark:scrollbar-thumb-hd4 transition-all"
         ref={messageRef}
       >
         {messages &&
@@ -65,7 +65,7 @@ const Messages = () => {
           autoFocus
           //onKeyDown={keyDownHandler}
           type="text"
-          className="w-full m-2 px-2 h-10 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none"
+          className="w-full m-2 px-2 h-10 bg-transparent border-b outline-none border-h2 dark:border-hd2 text-h2 dark:text-hd2  placeholder:text-h2 dark:placeholder:text-hd2 transition-all"
           placeholder="Write message..."
           onChange={(e) => {
             setMsg(e.target.value);
@@ -74,7 +74,7 @@ const Messages = () => {
         ></input>
         <button
           //ref={buttonRef}
-          className="m-2 lg:px-10 px-2 border border-hLight text-hLight hover:text-hDarkBlue hover:bg-hLight active:text-hLight active:bg-transparent"
+          className="m-2 lg:px-10 px-2 active:bg-transparent rounded-full bg-h4 dark:bg-hd4 text-h1 dark:text-hd1 hover:bg-h3 dark:hover:bg-hd3 active:text-h3 dark:active:text-hd3 dark:active:bg-transparent transition-all"
           onClick={() => {
             if (msg != "") {
               socket.emit("messageToServer", {

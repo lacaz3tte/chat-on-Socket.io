@@ -43,7 +43,7 @@ const ChatAccountsConteiner = () => {
         })
     }, []);
     return (
-        <div className='w-1/3 h-full bg-hDarkBlue border-r border-l-hLight relative overflow-y-auto scrollbar-thin overflow-scroll 
+        <div className='w-1/3 h-full border-r-h5 dark:border-r-hd5 transition-all border-r relative overflow-y-auto scrollbar-thin overflow-scroll 
             scrollbar-track-transparent scrollbar-thumb-transparent'>
             <SearchAccounts />
             <div className='absolute left-0 right-0 top-14 bottom-0 '>

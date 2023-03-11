@@ -1,4 +1,3 @@
-import React from "react";
 
 const BackButton = () => {
   const backHandle = () => {
@@ -7,11 +6,11 @@ const BackButton = () => {
 
   return (
     <button
-      className="border m-2 hover:text-hDarkBlue hover:bg-hLight active:bg-transparent"
+      className="m-2 hover:bg-h4 dark:hover:bg-hd4 active:bg-transparent dark:active:bg-transparent rounded-full p-2 transition-all text-h2 dark:text-hd2 hover:text-h1 dark:hover:text-hd1 active:text-h2 dark:active:text-hd2"
       onClick={() => backHandle()}
     >
       <svg
-        className="h-10 w-10 text-hLight hover:text-hDarkBlue active:text-hLight"
+        className="h-8 w-8 "
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

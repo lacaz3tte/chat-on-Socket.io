@@ -32,7 +32,7 @@ const SearchAccounts = () => {
     >
       <input
         type="text"
-        className="absolute top-0 left-0 right-0 m-2 px-2 h-10 bg-transparent border border-hLight text-hLight placeholder:text-hLight focus:outline-none"
+        className="absolute top-0 left-0 right-0 m-2 px-2 h-10 outline-none bg-transparent border-b border-h2 text-h2 placeholder:text-h2 dark:border-hd2 dark:text-hd2 dark:placeholder:text-hd2 transition-all"
         placeholder="Saerch..."
         value={inputValue}
         onChange={(e) => {
@@ -44,7 +44,7 @@ const SearchAccounts = () => {
       ></input>
       {
         search &&
-        <div className='absolute top-14 mx-2 left-0 right-0 max-h-56 z-10 scrollbar-thin overflow-scroll scrollbar-track-hBlue scrollbar-thumb-hLight bg-hDarkBlue border'>
+        <div className='absolute top-14 m-2 left-0 right-0 max-h-56 z-10 scrollbar-thin overflow-scroll scrollbar-track-h1 scrollbar-thumb-h4 bg-h5 rounded-xl dark:scrollbar-track-hd1 dark:scrollbar-thumb-hd4 dark:bg-hd5 transition-all'>
           {accounts &&
             accounts.map((e, i) => {
               return (

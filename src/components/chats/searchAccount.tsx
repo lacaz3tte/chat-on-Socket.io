@@ -11,7 +11,7 @@ const SearchAccount = ({login}:IDataTransfer) => {
 
   return (
     <div 
-      className='m-2 mr-4 p-2 border border-hLight text-hLight hover:text-hDarkBlue hover:bg-hLight transition-all hover:cursor-pointer'
+      className='m-2 mr-4 p-2 rounded-xl hover:cursor-pointer text-h2 hover:text-h1 hover:bg-h3 dark:text-hd2 dark:hover:text-hd1 dark:hover:bg-hd3 transition-all'
       onClick={()=>{
         chatContext.moveToChat(login)
       }}
