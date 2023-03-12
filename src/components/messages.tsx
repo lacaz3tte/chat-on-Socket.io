@@ -5,6 +5,7 @@ import { IData } from '../pages/interfaces';
 import { useEffect } from 'react';
 import { ChatContext } from './chatContext';
 import { useParams } from 'react-router-dom';
+import GetDate from './../massage/getDate';
 
 const Messages = () => {
 
@@ -50,13 +51,19 @@ const Messages = () => {
         {messages &&
           messages.map((e, i) => {
             return (
-              <Message
-                key={i}
-                name={e.name == messages[i - 1]?.name ? "" : e.name}
-                msg={e.msg}
-                date={e.date}
-                foreign={chatContext.chatName == e.name ? true : false}
-              ></Message>
+              <div>
+                { messages[i-1] ?
+                  <GetDate date={e.date} prevDate={messages[i-1].date} /> :
+                  <GetDate date={e.date}/> 
+                }
+                <Message
+                  key={i}
+                  name={e.name == messages[i - 1]?.name ? "" : e.name}
+                  msg={e.msg}
+                  date={e.date}
+                  foreign={chatContext.chatName == e.name ? true : false}
+                ></Message>
+              </div>
             );
           })}
       </div>
