@@ -14,6 +14,7 @@ const Messages = () => {
   const chatContext = useContext(ChatContext)
 
   let { chatName } = useParams<"chatName">() ;
+  //const chatName = localStorage.getItem('user')
 
   const [messages, setMessages] = useState<IData[]>([]);
   const [msg, setMsg] = useState('')
@@ -83,13 +84,13 @@ const Messages = () => {
           //ref={buttonRef}
           className="m-2 lg:px-10 px-2 active:bg-transparent rounded-full bg-h4 dark:bg-hd4 text-h1 dark:text-hd1 hover:bg-h3 dark:hover:bg-hd3 active:text-h3 dark:active:text-hd3 dark:active:bg-transparent transition-all"
           onClick={() => {
-            if (msg != "") {
+            console.log(chatName);
+            if (msg != "" && chatName) {
               socket.emit("messageToServer", {
                 name: [chatContext.chatName, chatName],
                 msg: msg,
                 date: Date.now()
               })
-
               setMessages((prev) => [
                 ...prev,
                 { name: chatName, msg: msg, date: Date.now() },

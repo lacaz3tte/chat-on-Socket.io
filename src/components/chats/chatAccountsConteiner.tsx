@@ -15,6 +15,7 @@ import { io } from 'socket.io-client';
 const ChatAccountsConteiner = () => {
 
     let { chatName } = useParams<"chatName">();
+    //const chatName = localStorage.getItem('user')
 
     const socket = useMemo(() => io("http://127.0.0.1:3001"), []);
 

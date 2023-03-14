@@ -12,7 +12,7 @@ const GetDate = ({date, prevDate = 0}:IData) => {
     "July", "August", "September", "October", "November", "December"
   ]
 
-  const getFullDate = ():string|null => {
+  const getFullDate = (date:number, prevDate = 0):string|null => {
     if (!prevDate) {
       if(new Date().getFullYear() !== new Date(date).getFullYear()){
         return new Date(date).getDate() + ' ' + monthNames[new Date(date).getMonth()]  + ' ' + new Date(date).getFullYear()
@@ -33,11 +33,11 @@ const GetDate = ({date, prevDate = 0}:IData) => {
     
   }
 
-  if(getFullDate()){
+  if(getFullDate(date, prevDate)){
     return (
       <div className="text-center">
         <div className="inline-block px-5 py-2 bg-h4 dark:bg-hd4 rounded-full text-h1 dark:text-hd1">
-          {getFullDate()}
+          {getFullDate(date, prevDate)}
         </div>
       </div>
     )

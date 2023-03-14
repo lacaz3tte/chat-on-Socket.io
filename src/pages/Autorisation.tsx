@@ -21,11 +21,12 @@ const Autorisation = () => {
 
   const clickHandle = async () => {
     AuthService.login({ login, password }).then((res) => {
-      if (res.data.login == null) {
+      if (res.data.access_token == null) {
         setHeader("Invalid name or password");
       } else {
-        localStorage.setItem("user", res.data.login);
-        navigate("chat/" + res.data.login);
+        localStorage.setItem("user", login);
+        localStorage.setItem("access_token",res.data.access_token)
+        navigate("chat/" + login);
       }
     });
   };
