@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import DarkModeButton from "../components/darkModeButton";
+import DarkModeButton from "../components/buttons/darkModeButton";
 import AuthService from "../services/Auth.service";
 import StartComponent from "./StartComponent";
 
@@ -25,7 +25,7 @@ const Autorisation = () => {
         setHeader("Invalid name or password");
       } else {
         localStorage.setItem("user", login);
-        localStorage.setItem("access_token",res.data.access_token)
+        localStorage.setItem("access_token", res.data.access_token)
         navigate("chat/" + login);
       }
     });

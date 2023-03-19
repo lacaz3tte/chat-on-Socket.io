@@ -1,24 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DarkModeButton = () => {
-  const [theme, setTheme] = useState(true);
+
+  const [theme, setTheme] = useState('')
 
   const themeHandle = () => {
-    if (theme === true) {
+    if (localStorage.theme !== "dark") {
       document.documentElement.classList.add("dark");
-      setTheme(!theme);
+      localStorage.setItem("theme", "dark")
+      setTheme('dark')
     } else {
       document.documentElement.classList.remove("dark");
-      setTheme(!theme);
+      localStorage.setItem("theme", "light")
+      setTheme('light')
     }
   };
+
+  useEffect(() => {
+    if (localStorage.theme && localStorage.theme === 'dark') {
+      document.documentElement.classList.add("dark");
+      setTheme('dark')
+    }
+  }, [])
 
   return (
     <button
       className="m-2 hover:bg-h4 dark:hover:bg-hd4 active:bg-transparent dark:active:bg-transparent rounded-full p-2 transition-all text-h2 dark:text-hd2 hover:text-h1 dark:hover:text-hd1 active:text-h2 dark:active:text-hd2"
       onClick={() => themeHandle()}
     >
-      {!theme ? (
+      {theme === 'dark' ? (
         <svg
           className="h-8 w-8"
           width="24"
