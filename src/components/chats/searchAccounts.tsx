@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { IAccountsTransfer } from '../../interfaces';
