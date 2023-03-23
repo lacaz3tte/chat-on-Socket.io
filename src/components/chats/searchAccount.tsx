@@ -16,7 +16,7 @@ const SearchAccount = ({login}:IDataTransfer) => {
         chatContext.moveToChat(login)
       }}
     >
-      <p className='underline font-bold'>{login}</p>
+      <p className='underline font-rubic_light'>{login}</p>
     </div>
   )
 }

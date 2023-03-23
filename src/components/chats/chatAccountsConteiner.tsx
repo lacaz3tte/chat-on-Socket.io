@@ -1,5 +1,4 @@
 import { useEffect, useContext, useMemo } from 'react'
-import axios from 'axios';
 import ChatAccount from './chatAccount';
 import { useState } from 'react';
 import { IData } from '../../pages/interfaces'
@@ -9,6 +8,7 @@ import { sortChats } from './sortChats';
 import { IChats } from '../../interfaces';
 import { ChatContext } from '../chatContext';
 import { io } from 'socket.io-client';
+import ChatsService from '../../services/Chats.service';
 
 
 
@@ -39,7 +39,7 @@ const ChatAccountsConteiner = () => {
     const [chats, setChats] = useState<IChats[]>([])
 
     useEffect(() => {
-        axios.post('http://localhost:3001/lastMessages', { name: chatName }).then(res => {
+        ChatsService.chats(chatName).then(res => {
             setChats(res.data.sort(sortChats))
         })
     }, []);

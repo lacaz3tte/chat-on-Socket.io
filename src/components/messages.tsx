@@ -68,12 +68,12 @@ const Messages = () => {
             );
           })}
       </div>
-      <div className="flex flex-row justify-between absolute bottom-0 right-0 h-14 left-0 rounded-3xl">
+      <div className="flex flex-row justify-between absolute bottom-0 right-0 h-14 left-0 rounded-b-3xl  border-t border-h5 dark:border-t-hd5">
         <input
           autoFocus
           //onKeyDown={keyDownHandler}
           type="text"
-          className="w-full m-2 px-2 h-10 bg-transparent border-b outline-none border-h2 dark:border-hd2 text-h2 dark:text-hd2  placeholder:text-h2 dark:placeholder:text-hd2 transition-all"
+          className="w-full m-2 px-2 h-10 bg-transparent border-b outline-none border-h2 dark:border-hd2 text-h2 dark:text-hd2  placeholder:text-h2 dark:placeholder:text-hd2 transition-all font-rubic_light"
           placeholder="Write message..."
           onChange={(e) => {
             setMsg(e.target.value);
@@ -82,7 +82,7 @@ const Messages = () => {
         ></input>
         <button
           //ref={buttonRef}
-          className="m-2 lg:px-10 px-2 active:bg-transparent rounded-full bg-h4 dark:bg-hd4 text-h1 dark:text-hd1 hover:bg-h3 dark:hover:bg-hd3 active:text-h3 dark:active:text-hd3 dark:active:bg-transparent transition-all"
+          className="m-2 lg:px-10 px-2 active:bg-transparent rounded-full bg-h4 dark:bg-hd4 text-h1 dark:text-hd1 hover:bg-h3 dark:hover:bg-hd3 active:text-h3 dark:active:text-hd3 dark:active:bg-transparent transition-all font-rubic_light"
           onClick={() => {
             console.log(chatName);
             if (msg != "" && chatName) {

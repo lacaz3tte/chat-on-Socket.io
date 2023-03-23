@@ -1,0 +1,63 @@
+.div{
+  @apply  w-0 relative h-[1px] bg-h2 ml-[25%] mr-[75%] ;
+
+  &::after{
+    content:'';
+    @apply w-0 bg-h2 absolute h-[1px] left-0 bottom-2 transition-all duration-200;
+  }
+}
+.input{
+  @apply h-10 min-h-[40px] block w-1/2 m-2 px-5 bg-transparent dark:border-hd2 text-h2 dark:text-hd2  placeholder:text-h2 dark:placeholder:text-hd2 transition-all outline-none font-rubic_light;
+
+  &:focus + .div{
+    @apply w-1/2 transition-all duration-500 mr-[25%]
+  }
+
+  &:not(:focus) + .div{
+    @apply w-0 transition-all duration-500 ml-[25%] mr-[75%]
+  }
+}
+.create_button{
+  @apply text-h2 p-3 font-rubic_light relative;
+
+  &::after{
+    content:'';
+    @apply w-0 bg-h2 absolute h-[1px] left-0 bottom-2 transition-all duration-200;
+  }
+
+  &:hover::after{
+    @apply w-full;
+  }
+}
+.enter_button{
+  @apply m-5 px-10 p-2 rounded-full text-h1 transition-all font-rubic_light relative z-10 overflow-hidden;
+  
+  &::before{
+    content: '';
+    @apply absolute left-0 bottom-0 h-full w-full bg-h4 rounded-full -z-20
+  }
+
+  &:active::before{
+    @apply bg-transparent
+  }
+
+  &:active{
+    @apply text-h3 bg-transparent;
+  }
+
+  &::after{
+    content: '';
+    @apply absolute left-0 bottom-0 h-full w-0 bg-h3 rounded-full transition-all duration-200 -z-10;
+  }
+
+  &:active::after{
+    @apply bg-transparent
+  }
+
+  &:hover::after{
+    @apply w-full
+  }
+}
+
+  
+

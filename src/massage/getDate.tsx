@@ -36,7 +36,7 @@ const GetDate = ({date, prevDate = 0}:IData) => {
   if(getFullDate(date, prevDate)){
     return (
       <div className="text-center">
-        <div className="inline-block px-5 py-2 bg-h4 dark:bg-hd4 rounded-full text-h1 dark:text-hd1">
+        <div className="inline-block px-5 py-2 bg-h4 dark:bg-hd4 rounded-full text-h1 dark:text-hd1 font-rubic_light">
           {getFullDate(date, prevDate)}
         </div>
       </div>

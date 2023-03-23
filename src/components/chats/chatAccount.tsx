@@ -21,10 +21,10 @@ const ChatAccount = ({ login, message }: IDataTransfer) => {
       }}
     >
       <div className='flex justify-between'>
-        <p className='underline font-bold'>{login}</p>
-        <p className='text-xs'> {getTime(message.date)} </p>
+        <p className='underline font-bold font-rubic_light'>{login}</p>
+        <p className='text-xs font-rubic_light'> {getTime(message.date)} </p>
       </div>
-        <p className='w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block'>{message.msg}</p>
+        <p className='w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block font-rubic_light'>{message.msg}</p>
     </div>
   )
 }

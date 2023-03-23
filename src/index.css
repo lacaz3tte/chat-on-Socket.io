@@ -18,4 +18,9 @@
     font-weight: 400;
     src: url("../public/Rubik.ttf");
   }
+  @font-face {
+    font-family: "Rubic-Light";
+    font-weight: 400;
+    src: url("../public/Rubik-Light.ttf");
+  }
 }

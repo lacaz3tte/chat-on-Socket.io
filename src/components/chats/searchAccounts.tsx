@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { IAccountsTransfer } from '../../interfaces';
+import AccountsService from '../../services/Accounts.service';
 import SearchAccount from './searchAccount';
 import { useDebounce } from './useDebounce';
 
@@ -16,9 +16,9 @@ const SearchAccounts = () => {
 
   useEffect(() => {
     if (debounceSearch) {
-      axios.post("http://localhost:3001/searchLogins", { inputValue }).then(res => { setAccounts(res.data) })
+      AccountsService.getAccounts(inputValue).then(res => { setAccounts(res.data) })
     } else {
-      axios.get("http://localhost:3001/login").then(res => { setAccounts(res.data) })
+      AccountsService.getAllAccounts().then(res => { setAccounts(res.data) })
     }
   }, [debounceSearch])
 
@@ -32,7 +32,7 @@ const SearchAccounts = () => {
     >
       <input
         type="text"
-        className="absolute top-0 left-0 right-0 m-2 px-2 h-10 outline-none bg-transparent border-b border-h2 text-h2 placeholder:text-h2 dark:border-hd2 dark:text-hd2 dark:placeholder:text-hd2 transition-all"
+        className="absolute top-0 left-0 right-0 m-2 px-2 h-10 outline-none bg-transparent border-b border-h2 text-h2 placeholder:text-h2 dark:border-hd2 dark:text-hd2 dark:placeholder:text-hd2 transition-all font-rubic_light"
         placeholder="Saerch..."
         value={inputValue}
         onChange={(e) => {

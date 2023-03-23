@@ -25,6 +25,7 @@ module.exports = {
         dune: ["Dune"],
         reospec: ["Reospec"],
         rubic: ["Rubic"],
+        rubic_light:["Rubic-Light"]
       },
     },
   },
