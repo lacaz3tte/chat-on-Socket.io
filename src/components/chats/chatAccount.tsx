@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ChatContext } from '../chatContext';
-import { getTime } from '../../massage/getTime';
+import { getTime } from '../messeges/massage/getTime';
 import { IData } from '../../pages/interfaces';
 
 
@@ -24,7 +24,7 @@ const ChatAccount = ({ login, message }: IDataTransfer) => {
         <p className='underline font-bold font-rubic_light'>{login}</p>
         <p className='text-xs font-rubic_light'> {getTime(message.date)} </p>
       </div>
-        <p className='w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block font-rubic_light'>{message.msg}</p>
+      <p className='w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block font-rubic_light'>{message.msg}</p>
     </div>
   )
 }

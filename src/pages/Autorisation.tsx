@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DarkModeButton from "../components/buttons/darkModeButton";
 import AuthService from "../services/Auth.service";
 import StartComponent from "./StartComponent";
-import styles from '../styles/Animation.module.scss'
+import styles from './Animation.module.scss'
 
 const Autorisation = () => {
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ const Autorisation = () => {
         </button>
         <button
           ref={buttonRef}
-          className={styles.enter_button + ' dark:text-hd1 dark:active:text-hd3 dark:after:bg-hd3 dark:before:bg-hd4 dark:after:active:bg-transparent dark:before:active:bg-transparent'}
+          className={styles.enter_button + ' m-5 dark:text-hd1 dark:active:text-hd3 dark:after:bg-hd3 dark:before:bg-hd4 dark:after:active:bg-transparent dark:before:active:bg-transparent'}
           onClick={() => clickHandle()}
         >
           Enter

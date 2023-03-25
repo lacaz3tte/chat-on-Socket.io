@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from './DarkModeButton.module.scss'
 
 const DarkModeButton = () => {
 
@@ -25,7 +26,7 @@ const DarkModeButton = () => {
 
   return (
     <button
-      className="m-2 hover:bg-h4 dark:hover:bg-hd4 active:bg-transparent dark:active:bg-transparent rounded-full p-2 transition-all text-h2 dark:text-hd2 hover:text-h1 dark:hover:text-hd1 active:text-h2 dark:active:text-hd2"
+      className={styles.button + ' dark:hover:before:content-["Dark"] dark:before:bg-hd5 dark:after:bg-hd1 dark:text-hd2 dark:hover:after:bg-hd4 dark:hover:before:bg-hd5 dark:hover:before:text-hd2 dark:hover:text-hd1 dark:active:text-hd2 dark:active:after:bg-hd5'}
       onClick={() => themeHandle()}
     >
       {theme === 'dark' ? (
@@ -52,7 +53,7 @@ const DarkModeButton = () => {
           stroke="currentColor"
           strokeWidth="1"
           strokeLinecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>

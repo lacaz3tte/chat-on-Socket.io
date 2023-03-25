@@ -3,7 +3,7 @@ import BackButton from "../components/buttons/backButton";
 import DarkModeButton from "../components/buttons/darkModeButton";
 import AuthService from "../services/Auth.service";
 import StartComponent from "./StartComponent";
-import styles from '../styles/Animation.module.scss'
+import styles from './Animation.module.scss'
 
 const CreateAccount = () => {
   const [login, setLogin] = useState("");
@@ -67,7 +67,7 @@ const CreateAccount = () => {
         <div className={styles.div + ' dark:bg-hd2'}></div>
         <button
           ref={buttonRef}
-          className={styles.enter_button + ' dark:text-hd1 dark:active:text-hd3 dark:after:bg-hd4 dark:before:bg-hd3 dark:after:active:bg-transparent dark:before:active:bg-transparent'}
+          className={styles.enter_button + ' dark:text-hd1 dark:active:text-hd3 dark:after:bg-hd4 dark:before:bg-hd3 dark:after:active:bg-transparent dark:before:active:bg-transparent mt-[68px] m-5'}
           onClick={() => clickHandle()}
         >
           Create

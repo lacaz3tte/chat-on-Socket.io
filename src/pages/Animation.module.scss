@@ -30,7 +30,7 @@
   }
 }
 .enter_button{
-  @apply m-5 px-10 p-2 rounded-full text-h1 transition-all font-rubic_light relative z-10 overflow-hidden;
+  @apply px-10 p-2 rounded-full text-h1 transition-all font-rubic_light relative z-10 overflow-hidden;
   
   &::before{
     content: '';

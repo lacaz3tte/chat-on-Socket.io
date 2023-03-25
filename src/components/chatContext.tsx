@@ -1,7 +1,7 @@
 import { createContext, useMemo, useState } from 'react'
 
 
-interface Context {
+interface ChatContext {
   chatName: string
   moveToChat: (value: string) => void
 
@@ -9,7 +9,7 @@ interface Context {
   changeChatRoom: (value: string) => void
 }
 
-export const ChatContext = createContext<Context>({
+export const ChatContext = createContext<ChatContext>({
   chatName: '',
   moveToChat: () => { },
   chatRoom: '',

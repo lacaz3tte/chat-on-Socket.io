@@ -1,7 +1,7 @@
 import BackButton from "../components/buttons/backButton";
 import ChatAccountsConteiner from '../components/chats/chatAccountsConteiner';
 import { ChatProvider } from "../components/chatContext";
-import MessagesConteiner from '../components/messagesConteiner';
+import MessagesConteiner from '../components/messeges/messagesConteiner';
 import DarkModeButton from "../components/buttons/darkModeButton";
 import StartComponent from "./StartComponent";
 

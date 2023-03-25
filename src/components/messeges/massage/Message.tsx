@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { IMassage } from "../pages/interfaces";
+import { IMassage } from "../../../pages/interfaces";
 import { getTime } from "./getTime";
 
 const Message = ({ name, msg, date, foreign }: IMassage) => {

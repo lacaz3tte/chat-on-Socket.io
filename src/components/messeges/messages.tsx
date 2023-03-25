@@ -1,11 +1,11 @@
 import React, { useContext, useMemo, useRef, useState } from 'react'
 import { io } from 'socket.io-client';
-import Message from '../massage/Message';
-import { IData } from '../pages/interfaces';
+import Message from './massage/Message';
+import { IData } from '../../pages/interfaces';
 import { useEffect } from 'react';
-import { ChatContext } from './chatContext';
+import { ChatContext } from '../chatContext';
 import { useParams } from 'react-router-dom';
-import GetDate from './../massage/getDate';
+import GetDate from './massage/getDate';
 
 const Messages = () => {
 
@@ -13,7 +13,7 @@ const Messages = () => {
 
   const chatContext = useContext(ChatContext)
 
-  let { chatName } = useParams<"chatName">() ;
+  let { chatName } = useParams<"chatName">();
   //const chatName = localStorage.getItem('user')
 
   const [messages, setMessages] = useState<IData[]>([]);
@@ -22,7 +22,7 @@ const Messages = () => {
   const socket = useMemo(() => io("http://127.0.0.1:3001"), []);
 
   useMemo(() => {
-    
+
     socket.on("updateDialogs", (message) => {
       console.log(message);
     })
@@ -46,16 +46,16 @@ const Messages = () => {
   return (
     <div>
       <div
-        className="absolute bottom-14 top-16 left-0 right-0 scrollbar-thin overflow-scroll scrollbar-track-h1 scrollbar-thumb-h4 dark:scrollbar-track-hd1 dark:scrollbar-thumb-hd4 transition-all"
+        className="absolute bottom-14 top-16 left-0 right-0 scrollbar-thin overflow-scroll scrollbar-thumb-h4 dark:scrollbar-thumb-hd4 transition-all"
         ref={messageRef}
       >
         {messages &&
           messages.map((e, i) => {
             return (
               <div>
-                { messages[i-1] ?
-                  <GetDate date={e.date} prevDate={messages[i-1].date} /> :
-                  <GetDate date={e.date}/> 
+                {messages[i - 1] ?
+                  <GetDate date={e.date} prevDate={messages[i - 1].date} /> :
+                  <GetDate date={e.date} />
                 }
                 <Message
                   key={i}
