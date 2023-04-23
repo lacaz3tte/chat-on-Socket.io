@@ -1,13 +1,14 @@
-import Autorisation from "./pages/Autorisation";
+import Authorisation from "./pages/Authorisation";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateAccount from "./pages/CreateAccount";
 import Chat from "./pages/Chat";
+import StartComponent from "./pages/StartComponent";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Autorisation />,
+      element: <Authorisation />,
     },
     {
       path: "chat/:chatName",
@@ -20,7 +21,9 @@ function App() {
   ]);
 
   return (
+    <StartComponent>
     <RouterProvider router={router} />
+    </StartComponent>
   );
 }
 

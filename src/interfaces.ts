@@ -1,4 +1,3 @@
-import { IData } from "./pages/interfaces";
 
 export interface IUser {
   login: string;
@@ -13,4 +12,14 @@ export interface IAccountsTransfer {
 export interface IChats {
   users: string[]
   message: IData
+}
+
+export interface IData {
+  name: string | undefined;
+  msg: string;
+  date: number;
+}
+
+export interface IMassage extends IData {
+  foreign: boolean;
 }

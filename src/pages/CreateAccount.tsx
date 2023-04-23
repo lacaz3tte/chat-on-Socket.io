@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import BackButton from "../components/buttons/backButton";
 import DarkModeButton from "../components/buttons/darkModeButton";
 import AuthService from "../services/Auth.service";
-import StartComponent from "./StartComponent";
 import styles from './Animation.module.scss'
 
 const CreateAccount = () => {
@@ -35,45 +34,43 @@ const CreateAccount = () => {
   };
 
   return (
-    <StartComponent>
-      <div className="h-2/3 min-h-[400px] min-w-[325px] w-1/2 bg-h1 relative rounded-2xl dark:bg-hd1 transition-all flex flex-col justify-center items-center">
-        <div className="absolute top-0 right-0 left-0 flex justify-between z-10">
-          <BackButton />
-          <DarkModeButton />
-        </div>
-        <p className="text-3xl m-10 text-h2 dark:text-hd2 transition-all font-rubic_light">{header}</p>
-        <input
-          autoFocus
-          onKeyDown={keyDownHandler}
-          type="text"
-          className={styles.input + ' dark:text-hd2 dark:placeholder:text-hd2'}
-          placeholder="Login..."
-          value={login}
-          onChange={(e) => {
-            setLogin(e.target.value);
-          }}
-        ></input>
-        <div className={styles.div + ' dark:bg-hd2'}></div>
-        <input
-          onKeyDown={keyDownHandler}
-          type="password"
-          className={styles.input + ' dark:text-hd2 dark:placeholder:text-hd2'}
-          placeholder="Password..."
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        ></input>
-        <div className={styles.div + ' dark:bg-hd2'}></div>
-        <button
-          ref={buttonRef}
-          className={styles.enter_button + ' dark:text-hd1 dark:active:text-hd3 dark:after:bg-hd4 dark:before:bg-hd3 dark:after:active:bg-transparent dark:before:active:bg-transparent mt-[68px] m-5'}
-          onClick={() => clickHandle()}
-        >
-          Create
-        </button>
+    <div className="h-2/3 min-h-[400px] min-w-[325px] w-1/2 bg-h1 relative rounded-2xl dark:bg-hd1 transition-all flex flex-col justify-center items-center">
+      <div className="absolute top-0 right-0 left-0 flex justify-between z-10">
+        <BackButton />
+        <DarkModeButton />
       </div>
-    </StartComponent>
+      <p className="text-3xl m-10 text-h2 dark:text-hd2 transition-all font-rubic_light">{header}</p>
+      <input
+        autoFocus
+        onKeyDown={keyDownHandler}
+        type="text"
+        className={styles.input + ' dark:text-hd2 dark:placeholder:text-hd2'}
+        placeholder="Login..."
+        value={login}
+        onChange={(e) => {
+          setLogin(e.target.value);
+        }}
+      ></input>
+      <div className={styles.div + ' dark:bg-hd2'}></div>
+      <input
+        onKeyDown={keyDownHandler}
+        type="password"
+        className={styles.input + ' dark:text-hd2 dark:placeholder:text-hd2'}
+        placeholder="Password..."
+        value={password}
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      ></input>
+      <div className={styles.div + ' dark:bg-hd2'}></div>
+      <button
+        ref={buttonRef}
+        className={styles.enter_button + ' dark:text-hd1 dark:active:text-hd3 dark:after:bg-hd4 dark:before:bg-hd3 dark:after:active:bg-transparent dark:before:active:bg-transparent mt-[68px] m-5'}
+        onClick={() => clickHandle()}
+      >
+        Create
+      </button>
+    </div>
   );
 };
 

@@ -1,11 +1,11 @@
 import React, { useContext, useMemo, useRef, useState } from 'react'
 import { io } from 'socket.io-client';
 import Message from './massage/Message';
-import { IData } from '../../pages/interfaces';
 import { useEffect } from 'react';
 import { ChatContext } from '../chatContext';
 import { useParams } from 'react-router-dom';
 import GetDate from './massage/getDate';
+import { IData } from '../../interfaces';
 
 const Messages = () => {
 
@@ -52,7 +52,7 @@ const Messages = () => {
         {messages &&
           messages.map((e, i) => {
             return (
-              <div>
+              <div key={i}>
                 {messages[i - 1] ?
                   <GetDate date={e.date} prevDate={messages[i - 1].date} /> :
                   <GetDate date={e.date} />
