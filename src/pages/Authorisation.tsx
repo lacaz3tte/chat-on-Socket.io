@@ -47,11 +47,11 @@ const Authorisation = () => {
   };
 
   return (
-      <div className="h-2/3 w-1/2 min-h-[400px] min-w-[325px] flex justify-center items-center flex-col rounded-2xl bg-h1 relative dark:bg-hd1 transition-all">
+      <div className="md:h-2/3 md:w-1/2 w-full h-full min-h-[400px] min-w-[325px] flex justify-center items-center flex-col rounded-2xl bg-h1 relative dark:bg-hd1 transition-all">
         <div className="absolute top-0 right-0">
           <DarkModeButton />
         </div>
-        <p className="text-3xl m-10 text-h2 dark:text-hd2 transition-all font-rubic_light">{enterData.header}</p>
+        <p className="text-3xl m-10 text-h2 dark:text-hd2 transition-all font-rubic_light text-center">{enterData.header}</p>
         <input
           onKeyDown={keyDownHandler}
           type="text"

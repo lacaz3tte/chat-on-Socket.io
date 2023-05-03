@@ -10,7 +10,7 @@ const BackButton = () => {
       onClick={() => backHandle()}
     >
       <svg
-        className="h-8 w-8 "
+        className="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

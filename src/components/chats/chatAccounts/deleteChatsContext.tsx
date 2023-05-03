@@ -6,6 +6,9 @@ interface DeleteChatContext {
   deleteMode: boolean
   setDeleteMode: (value:boolean) => void
 
+  bannerVisiable:boolean
+  setBannerVisiable:(value:boolean)=> void
+
   chats: string[][]
 
   addChat: (value:string[]) => void
@@ -17,6 +20,8 @@ interface DeleteChatContext {
 export const DeleteChatContext = createContext<DeleteChatContext>({
   deleteMode: false,
   setDeleteMode: () => {},
+  bannerVisiable:false,
+  setBannerVisiable:()=>{},
   chats: [],
   addChat: () => { },
   deleteChat: () => { },
@@ -31,10 +36,16 @@ export const DeleteChatProvider = ({ children }: any) => {
     changeDeleteMode(value)
   }
 
-  useEffect(()=>{console.log('DeleteMode: ' + deleteMode);
-  },[deleteMode])
+  const [bannerVisiable,changeBannerVisiable] = useState(false)
 
+  const setBannerVisiable = (value:boolean) => {
+    changeBannerVisiable(value)
+  }
+  
   const [chats,setChats] = useState<Array<Array<string>>>([])
+  
+  useEffect(()=>{console.log('DeleteChats: ' + chats);
+  },[chats])
 
   const addChat = (value:string[]) => {
     setChats((prev)=>[...prev,value])
@@ -52,6 +63,8 @@ export const DeleteChatProvider = ({ children }: any) => {
     <DeleteChatContext.Provider value={{
       deleteMode: deleteMode,
       setDeleteMode: setDeleteMode,
+      bannerVisiable:bannerVisiable,
+      setBannerVisiable:setBannerVisiable,
       chats: chats,
       addChat : addChat,
       deleteChat:deleteChat,

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { IAccountsTransfer } from '../../interfaces';
-import AccountsService from '../../services/Accounts.service';
+import { IAccountsTransfer } from '../../../interfaces';
+import AccountsService from '../../../services/Accounts.service';
 import SearchAccount from './searchAccount';
-import { useDebounce } from './useDebounce';
+import { useDebounce } from '../useDebounce';
 
 const SearchAccounts = () => {
 
@@ -26,13 +26,13 @@ const SearchAccounts = () => {
   document.onclick = (() => { setSearch(false) })
 
   return (
-    <div 
+    <div
       onClick={(e) => { e.stopPropagation() }}
     >
       <input
         type="text"
-        className="absolute top-0 left-0 right-0 m-2 px-2 h-10 outline-none bg-transparent border-b border-h2 text-h2 placeholder:text-h2 dark:border-hd2 dark:text-hd2 dark:placeholder:text-hd2 transition-all font-rubic_light"
-        placeholder="Saerch..."
+        className="absolute top-0 left-0 md:right-2/3 right-0 m-2 px-2 h-10 outline-none bg-transparent border-b border-h2 text-h2 placeholder:text-h2 dark:border-hd2 dark:text-hd2 dark:placeholder:text-hd2 transition-all font-rubic_light"
+        placeholder="Search..."
         value={inputValue}
         onChange={(e) => {
           setInputValue(e.target.value)
@@ -43,7 +43,7 @@ const SearchAccounts = () => {
       ></input>
       {
         search &&
-        <div className='absolute top-16 m-2 left-0 right-0 max-h-56 z-10 scrollbar-thin overflow-scroll scrollbar-track-h1 scrollbar-thumb-h4 bg-h5 rounded-xl dark:scrollbar-track-hd1 dark:scrollbar-thumb-hd4 dark:bg-hd5 transition-all'>
+        <div className='absolute top-16 m-2 left-0 right-0 md:right-2/3 max-h-56 z-10 scrollbar-thin overflow-scroll scrollbar-track-h1 scrollbar-thumb-h4 bg-h5 rounded-xl dark:scrollbar-track-hd1 dark:scrollbar-thumb-hd4 dark:bg-hd5 transition-all'>
           {accounts &&
             accounts.map((e, i) => {
               return (

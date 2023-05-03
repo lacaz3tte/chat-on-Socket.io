@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
 
 
 interface ChatContext {
@@ -7,13 +7,21 @@ interface ChatContext {
 
   chatRoom: string
   changeChatRoom: (value: string) => void
+
+  //for mobile version
+  showSearchPannel:boolean
+  changeSearchPannel: (value: boolean) => void
 }
 
 export const ChatContext = createContext<ChatContext>({
   chatName: '',
   moveToChat: () => { },
   chatRoom: '',
-  changeChatRoom: () => { }
+  changeChatRoom: () => { },
+
+  //for mobile version
+  showSearchPannel:false,
+  changeSearchPannel: () => { }
 })
 
 export const ChatProvider = ({ children }: any) => {
@@ -30,12 +38,29 @@ export const ChatProvider = ({ children }: any) => {
     setChatRoom(room)
   }
 
+  //for mobile version
+  const [showSearchPannel,setShowSearchPannel] = useState(false)
+
+  const changeSearchPannel = (value:boolean) => {
+    setShowSearchPannel(value)
+  }
+
+  useEffect(()=>{
+    console.log(showSearchPannel)
+  },[
+    showSearchPannel
+  ])
+
   return (
     <ChatContext.Provider value={{
       chatName: chatName,
       moveToChat: moveToChat,
       chatRoom:chatRoom,
-      changeChatRoom:changeChatRoom
+      changeChatRoom:changeChatRoom,
+
+      //for mobile version
+      showSearchPannel:showSearchPannel,
+      changeSearchPannel:changeSearchPannel
     }}>
       {children}
     </ChatContext.Provider>

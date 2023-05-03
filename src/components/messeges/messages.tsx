@@ -1,11 +1,10 @@
-import React, { useContext, useMemo, useRef, useState } from 'react'
+import { useContext, useMemo, useRef, useState, useEffect } from 'react'
 import { io } from 'socket.io-client';
-import Message from './massage/Message';
-import { useEffect } from 'react';
-import { ChatContext } from '../chatContext';
 import { useParams } from 'react-router-dom';
+import { ChatContext } from '../chatContext';
 import GetDate from './massage/getDate';
 import { IData } from '../../interfaces';
+import Message from './massage/Message';
 
 const Messages = () => {
 
@@ -84,7 +83,6 @@ const Messages = () => {
           //ref={buttonRef}
           className="m-2 lg:px-10 px-2 active:bg-transparent rounded-full bg-h4 dark:bg-hd4 text-h1 dark:text-hd1 hover:bg-h3 dark:hover:bg-hd3 active:text-h3 dark:active:text-hd3 dark:active:bg-transparent transition-all font-rubic_light"
           onClick={() => {
-            console.log(chatName);
             if (msg != "" && chatName) {
               socket.emit("messageToServer", {
                 name: [chatContext.chatName, chatName],

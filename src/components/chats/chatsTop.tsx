@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import DeleteChat from './deleteChat';
-import { DeleteChatContext } from './deleteChatsContext';
-import SearchAccounts from './searchAccounts';
+import DeleteChat from './chatAccounts/deleteChat';
+import { DeleteChatContext } from './chatAccounts/deleteChatsContext';
+import SearchAccounts from './searchAccounts/searchAccounts';
 
 const ChatsTop = () => {
 
@@ -11,10 +11,10 @@ const ChatsTop = () => {
     <>
       {
         deleteChatContext.deleteMode
-        ?
-        <DeleteChat /> 
-        :
-        <SearchAccounts />
+          ?
+          <DeleteChat />
+          :
+          <SearchAccounts />
       }
     </>
   )

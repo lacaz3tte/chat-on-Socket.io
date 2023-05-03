@@ -34,7 +34,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="h-2/3 min-h-[400px] min-w-[325px] w-1/2 bg-h1 relative rounded-2xl dark:bg-hd1 transition-all flex flex-col justify-center items-center">
+    <div className="md:h-2/3 md:w-1/2 w-full h-full min-h-[400px] min-w-[325px] bg-h1 relative rounded-2xl dark:bg-hd1 transition-all flex flex-col justify-center items-center">
       <div className="absolute top-0 right-0 left-0 flex justify-between z-10">
         <BackButton />
         <DarkModeButton />

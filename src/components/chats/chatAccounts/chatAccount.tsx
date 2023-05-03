@@ -1,9 +1,11 @@
 import { useContext } from 'react';
-import { ChatContext } from '../chatContext';
-import { getTime } from '../messeges/massage/getTime';
+import { ChatContext } from '../../chatContext';
+import { getTime } from '../../messeges/massage/getTime';
 import { useLongPress } from 'react-use'
 import { DeleteChatContext } from './deleteChatsContext';
-import { IData } from '../../interfaces';
+import { IData } from '../../../interfaces';
+import DeleteChatButton from './deleteChatButton';
+import { useParams } from 'react-router-dom';
 
 
 interface IDataTransfer {
@@ -14,6 +16,8 @@ interface IDataTransfer {
 const ChatAccount = ({ login, message }: IDataTransfer) => {
 
   const chatContext = useContext(ChatContext)
+
+  let { chatName } = useParams<"chatName">();
 
   const deleteChatContext = useContext(DeleteChatContext)
 
@@ -33,6 +37,10 @@ const ChatAccount = ({ login, message }: IDataTransfer) => {
         className={'m-2 p-2 text-h2 hover:text-h1 rounded-xl hover:bg-h4 dark:text-hd2 dark:hover:text-hd1 dark:hover:bg-hd4 hover:cursor-pointer transition-all '
           + (deleteChatContext.deleteMode ? ' mr-12 ' : '')}
         {...longPressEvent}
+        onTouchStart={() => {
+          chatContext.moveToChat(login)
+          chatContext.changeSearchPannel(false)
+        }}
         onClick={() => {
           chatContext.moveToChat(login)
         }}
@@ -43,8 +51,7 @@ const ChatAccount = ({ login, message }: IDataTransfer) => {
         </div>
         <p className='w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block font-rubic_light'>{message.msg}</p>
       </div>
-      <div className={' absolute top-1/2 right-0 h-6 -translate-y-1/2 rounded-full  mr-3 ' + (deleteChatContext.deleteMode ? ' w-6 border-h3 border' : ' w-0 border-none')}>
-      </div>
+      <DeleteChatButton logins={[login,chatName as string]}/>
 
     </div>
   )

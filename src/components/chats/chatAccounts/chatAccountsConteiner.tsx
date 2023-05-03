@@ -1,14 +1,15 @@
 import { useEffect, useContext, useMemo } from 'react'
-import ChatAccount from './chatAccount';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import SearchAccounts from './searchAccounts';
-import { sortChats } from './sortChats';
-import { IChats } from '../../interfaces';
 import { io } from 'socket.io-client';
-import ChatsService from '../../services/Chats.service';
+import ChatAccount from './chatAccount';
+import { sortChats } from '../sortChats';
+import { IChats } from '../../../interfaces';
+import ChatsService from '../../../services/Chats.service';
 import { DeleteChatProvider } from './deleteChatsContext';
-import ChatsTop from './chatsTop';
+import ChatsTop from '../chatsTop';
+import DeleteChatsBanner from './deleteChatsBanner';
+import { ChatContext } from '../../chatContext';
 
 
 
@@ -16,6 +17,8 @@ const ChatAccountsConteiner = () => {
 
     let { chatName } = useParams<"chatName">();
     //const chatName = localStorage.getItem('user')
+
+    const chatContext = useContext(ChatContext)
 
     const socket = useMemo(() => io("http://127.0.0.1:3001"), []);
 
@@ -45,10 +48,13 @@ const ChatAccountsConteiner = () => {
     }, []);
     return (
         <DeleteChatProvider>
-            <div className='w-1/3 h-full border-r-h5 dark:border-r-hd5 transition-all border-r relative overflow-y-auto scrollbar-thin overflow-scroll 
-            scrollbar-track-transparent scrollbar-thumb-transparent'>
+            <DeleteChatsBanner />
+            <div className={'md:w-1/3 rounded-2xl w-full h-full border-r-h5 bg-transparent dark:border-r-hd5 transition-all border-r absolute md:static z-40 bg-h1' + (
+                chatContext.showSearchPannel ? ' right-0 bg-hd1 ' : ' right-[100%]'
+            )}>
                 <ChatsTop />
-                <div className='absolute left-0 right-0 top-14 bottom-0 '>
+                <div className='absolute left-0 md:right-2/3 right-0 top-14 bottom-0 overflow-y-auto scrollbar-thin overflow-scroll 
+                scrollbar-track-transparent scrollbar-thumb-transparent'>
                     {
                         chats.map((e) => {
                             return (
