@@ -1,61 +1,76 @@
 .div{
   @apply  w-0 relative h-[1px] bg-h2 ml-[25%] mr-[75%] ;
+  foo:bar;
 
   &::after{
     content:'';
     @apply w-0 bg-h2 absolute h-[1px] left-0 bottom-2 transition-all duration-200;
+    foo:bar;
   }
 }
 .input{
   @apply h-10 min-h-[40px] block w-1/2 m-2 px-5 bg-transparent dark:border-hd2 text-h2 dark:text-hd2  placeholder:text-h2 dark:placeholder:text-hd2 transition-all outline-none font-rubic_light;
+  foo:bar;
 
   &:focus + .div{
-    @apply w-1/2 transition-all duration-500 mr-[25%]
+    @apply w-1/2 transition-all duration-500 mr-[25%];
+    foo:bar;
   }
 
   &:not(:focus) + .div{
-    @apply w-0 transition-all duration-500 ml-[25%] mr-[75%]
+    @apply w-0 transition-all duration-500 ml-[25%] mr-[75%];
+    foo:bar;
   }
 }
 .create_button{
   @apply text-h2 p-3 font-rubic_light relative;
+  foo:bar;
 
   &::after{
     content:'';
     @apply w-0 bg-h2 absolute h-[1px] left-0 bottom-2 transition-all duration-200;
+    foo:bar;
   }
 
   &:hover::after{
     @apply w-full;
+    foo:bar;
   }
 }
 .enter_button{
   @apply px-10 p-2 rounded-full text-h1 transition-all font-rubic_light relative z-10 overflow-hidden;
+  foo:bar;
   
   &::before{
     content: '';
-    @apply absolute left-0 bottom-0 h-full w-full bg-h4 rounded-full -z-20
+    @apply absolute left-0 bottom-0 h-full w-full bg-h4 rounded-full -z-20;
+    foo:bar;
   }
 
   &:active::before{
-    @apply bg-transparent
+    @apply bg-transparent;
+    foo:bar;
   }
 
   &:active{
     @apply text-h3 bg-transparent;
+    foo:bar;
   }
 
   &::after{
     content: '';
     @apply absolute left-0 bottom-0 h-full w-0 bg-h3 rounded-full transition-all duration-200 -z-10;
+    foo:bar;
   }
 
   &:active::after{
-    @apply bg-transparent
+    @apply bg-transparent;
+    foo:bar;
   }
 
   &:hover::after{
-    @apply w-full
+    @apply w-full;
+    foo:bar;
   }
 }
 
