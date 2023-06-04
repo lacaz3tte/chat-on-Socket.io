@@ -13,11 +13,12 @@ const MessagesConteiner = () => {
   return (
 
     <div className="relative w-full md:w-2/3">
-      <div className="absolute top-0 left-0 right-0 flex justify-between">
+      <div className="absolute top-0 left-0 right-0 flex justify-between items-center">
         <div>
           <BackButton />
           <ShowChatsButton />
         </div>
+        <p className='font-rubic_light text-h2 dark:text-hd2 font-bold'>{chatContext.chatName}</p>
         <DarkModeButton />
       </div>
       {

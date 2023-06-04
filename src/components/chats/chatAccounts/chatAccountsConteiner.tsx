@@ -49,8 +49,8 @@ const ChatAccountsConteiner = () => {
     return (
         <DeleteChatProvider>
             <DeleteChatsBanner />
-            <div className={'md:w-1/3 rounded-2xl w-full h-full border-r-h5 bg-transparent dark:border-r-hd5 transition-all border-r absolute md:static z-40 bg-h1' + (
-                chatContext.showSearchPannel ? ' right-0 bg-hd1 ' : ' right-[100%]'
+            <div className={'md:w-1/3 rounded-2xl w-full h-full border-r-h5 dark:border-r-hd5 transition-all border-r absolute md:static z-50' + (
+                chatContext.showSearchPannel ? ' right-0 bg-h1 dark:bg-hd1' : ' right-[100%]'
             )}>
                 <ChatsTop />
                 <div className='absolute left-0 md:right-2/3 right-0 top-14 bottom-0 overflow-y-auto scrollbar-thin overflow-scroll 
