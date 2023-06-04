@@ -81,7 +81,7 @@ const Messages = () => {
         ></input>
         <button
           //ref={buttonRef}
-          className="m-2 lg:px-10 px-2 active:bg-transparent rounded-full bg-h4 dark:bg-hd4 text-h1 dark:text-hd1 hover:bg-h3 dark:hover:bg-hd3 active:text-h3 dark:active:text-hd3 dark:active:bg-transparent transition-all font-rubic_light"
+          className='m-2 mr-4'
           onClick={() => {
             if (msg != "" && chatName) {
               socket.emit("messageToServer", {
@@ -97,7 +97,19 @@ const Messages = () => {
             }
           }}
         >
-          Send
+          <svg 
+            className="h-8 w-8 fill-h4 dark:fill-hd4 hover:fill-h3 hover:dark:fill-hd3 active:fill-transparent dark:active:fill-transparent"  
+            width="24" height="24" 
+            viewBox="0 0 24 24" 
+            stroke-width="0" 
+            stroke="currentColor" 
+            fill="none" > 
+            <path 
+              fill-rule="evenodd" 
+              clip-rule="evenodd"
+              d="M3.3938 2.20468C3.70395 1.96828 4.12324 1.93374 4.4679 2.1162L21.4679 11.1162C21.7953 11.2895 22 11.6296 22 12C22 12.3704 21.7953 12.7105 21.4679 12.8838L4.4679 21.8838C4.12324 22.0662 3.70395 22.0317 3.3938 21.7953C3.08365 21.5589 2.93922 21.1637 3.02382 20.7831L4.97561 12L3.02382 3.21692C2.93922 2.83623 3.08365 2.44109 3.3938 2.20468ZM6.80218 13L5.44596 19.103L16.9739 13H6.80218ZM16.9739 11H6.80218L5.44596 4.89699L16.9739 11Z"  
+            />
+          </svg>
         </button>
       </div>
     </div>
